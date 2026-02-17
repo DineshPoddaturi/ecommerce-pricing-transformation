@@ -1,0 +1,67 @@
+```
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# Data files (don't commit large datasets)
+data/*.csv
+data/*.zip
+data/*.json
+*.csv
+*.zip
+
+# But keep README files in data folder
+!data/README.md
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Outputs (keep the folder, not the files)
+outputs/*.pdf
+outputs/*.png
+outputs/*.jpg
+outputs/figures/*.png
+
+# Keep README files
+!outputs/README.md
+!outputs/figures/README.md
+
+# Power BI
+*.pbix
+
+# Temporary files
+*.tmp
+*.log
