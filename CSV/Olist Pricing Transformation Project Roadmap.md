@@ -120,9 +120,8 @@ CLV = (Avg Order Value) × (Purchase Frequency) × (Customer Lifespan) - (Acquis
 ```
 
 **By Segment:**
-- High-value loyalists: $X CLV
-- Bargain hunters: $Y CLV
-- etc.
+- High-value loyalists: $ CLV
+- Bargain hunters: $ CLV
 
 **Deliverables:**
 - Notebook: `02_segmentation_elasticity_clv.ipynb`
@@ -302,9 +301,9 @@ Subject to: Acquisition cost constraints, retention impact
 **Slides 2-3: Situation Analysis**
 - Market context (Brazilian e-commerce, competitive landscape)
 - Current challenges:
-  - High price variance (X% dispersion)
-  - Low retention (Y% repeat rate)
-  - Margin pressure (Z% compression)
+  - High price variance (% dispersion)
+  - Low retention (% repeat rate)
+  - Margin pressure (% compression)
 
 **Slides 4-6: Analysis & Insights**
 - Customer segmentation (4-5 segments, characteristics)
