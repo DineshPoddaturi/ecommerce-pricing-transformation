@@ -1,59 +1,69 @@
-# E-Commerce Marketplace Pricing Transformation
+# Profit-Aware Pricing in Two-Sided Marketplaces
 
-**Strategic pricing analysis combining customer segmentation, demand elasticity, and CLV optimization**
+Replication code for the working paper: **"Profit-Aware Pricing in Two-Sided Marketplaces: Demand Elasticity, Cost Uncertainty, and Customer Lifetime Value in Brazilian E-Commerce"**
 
-## Project Overview
+**Author:** Dinesh R. Poddaturi, Ph.D.  
+**Paper:** [SSRN — ssrn.com/abstract=6502262](https://ssrn.com/abstract=6502262)  
+**Website:** [dineshpoddaturi.github.io](https://dineshpoddaturi.github.io)  
+**Status:** Complete
 
-Analysis of 100K+ transactions from a Brazilian e-commerce marketplace (Olist) to develop data-driven pricing strategies that balance revenue growth, customer retention, and profitability.
+---
 
-### Business Problem
-- High price variance for identical products (seller competition)
-- Low customer repeat purchase rates
-- Margin pressure from aggressive pricing
-- Suboptimal platform commission structure
+## Overview
 
-### Approach
-- Customer segmentation (RFM analysis + clustering)
-- Price elasticity estimation (discrete choice modeling)
-- Marketplace dynamics analysis (two-sided market)
-- Customer lifetime value optimization
-- Multi-objective pricing framework
+This repository contains the Python analysis underlying the working paper. The analysis applies to 110,840 transactions across 71 product categories from the Olist Brazilian e-commerce marketplace (2016–2018), developing an integrated pricing framework that combines demand elasticity estimation, profit optimization under cost uncertainty, customer lifetime value modeling, and sequential purchase pattern analysis.
 
-### Expected Impact
-- 12-15% GMV increase
-- 20% customer lifetime value improvement
-- 3-5% margin expansion
+The paper demonstrates that revenue maximization and profit maximization are fundamentally misaligned in elastic markets, and that cost uncertainty dominates elasticity precision in practical pricing decisions.
 
-## Project Structure
+---
+
+## Key Findings
+
+- A revenue-maximizing strategy for electronics recommends a 40% price cut generating +160% revenue but -162% profit at a 65% COGS structure.
+- A 5-point COGS error forfeits 70–75% of potential profit gains. A 20% elasticity error preserves profitability across all scenarios. Cost validation matters more than elasticity precision.
+- Electronics is structurally underpriced: profit-optimal pricing recommends a 20% price increase despite elastic demand (η = -2.18), yielding +5.6% profit and +BRL 3,143/month.
+- Same-order bundling is non-viable (0% co-purchase rate across focus categories). Sequential recommendations triggered at days 21, 29, and 56 post-purchase capture the majority of repeat customers within their natural return window.
+- Freight costs affect repeat purchase probability at approximately the same magnitude as product price (coefficients -0.076 and -0.079 respectively).
+
+---
+
+## Repository Structure
+
 ```
 ecommerce-pricing-transformation/
 ├── README.md
 ├── requirements.txt
-├── data/                          # Raw data (not committed)
-├── notebooks/                     # Jupyter notebooks
-│   ├── 01_data_exploration_business_context.ipynb
-│   ├── 02_segmentation_elasticity_clv.ipynb
-│   ├── 03_seller_marketplace_dynamics.ipynb
-│   └── 04_optimization_clv_scenarios.ipynb
-├── src/                           # Reusable Python functions
-│   ├── data_processing.py
-│   ├── modeling.py
-│   └── visualization.py
-└── outputs/                       # Results, figures, reports
-    ├── executive_deck.pdf
-    ├── technical_report.pdf
-    └── figures/
+├── .gitignore
+└── notebooks/
+    ├── 01_data_exploration_business_context.ipynb
+    ├── 02_segmentation_elasticity_clv.ipynb
+    ├── 03_sellercompetition_dynamics_platform_revenue.ipynb
+    ├── 04_bundle_analysis_notapplicable.ipynb
+    └── 05_optimization_scenario_simulation.ipynb
 ```
+
+---
+
+## Notebooks
+
+| Notebook | Description |
+|---|---|
+| 01_data_exploration_business_context | Data loading, cleaning, product bucket construction, repeat purchase analysis, dataset preparation |
+| 02_segmentation_elasticity_clv | RFM segmentation, price elasticity estimation, customer lifetime value modeling, propensity scoring |
+| 03_sellercompetition_dynamics_platform_revenue | Seller concentration analysis, geographic pricing patterns, platform revenue dynamics, two-sided market analysis |
+| 04_bundle_analysis_notapplicable | Bundle opportunity analysis — co-purchase rates, cross-category affinity (null result: bundling not viable) |
+| 05_optimization_scenario_simulation | Profit-aware pricing optimization, cost sensitivity analysis, scenario simulation, sequential purchase recommendation framework |
+
+---
 
 ## Data Source
 
-Brazilian E-Commerce Public Dataset by Olist
+**Brazilian E-Commerce Public Dataset by Olist**  
+Available at: [https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce)
 
-**Kaggle:** https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce
+### Required Files
 
-### Files Required
-
-Download the following files from Kaggle and place them in this folder:
+Download the following files from Kaggle and place them in a `data/` directory at the repo root:
 
 - `olist_orders_dataset.csv`
 - `olist_order_items_dataset.csv`
@@ -65,49 +75,74 @@ Download the following files from Kaggle and place them in this folder:
 - `olist_order_payments_dataset.csv`
 - `product_category_name_translation.csv`
 
-## Data Size
+Data files are not tracked in this repository. Approximately 150MB uncompressed.
 
-Approximately 150MB uncompressed
+---
 
-## Setup
+## Requirements
+
+Python 3.9+. Install dependencies with:
+
 ```bash
-# Download from Kaggle
-# Extract zip file
-# Place all .csv files in this folder
-```
-
-**Note:** Data files are not tracked in Git (see `.gitignore`)
-
-## Technologies
-
-- **Python 3.9+**
-- **Analysis:** pandas, numpy, scipy
-- **Modeling:** statsmodels, scikit-learn
-- **Visualization:** matplotlib, seaborn, plotly
-- **Dashboard:** Power BI
-
-## Getting Started
-```bash
-# Clone repository
-git clone https://github.com/DineshPoddaturi/ecommerce-pricing-transformation.git
-
-# Install dependencies
 pip install -r requirements.txt
-
-# Download data from Kaggle and place in data/ folder
 ```
 
-## Project Status
+Core packages: pandas, numpy, scipy, statsmodels, scikit-learn, matplotlib, seaborn
 
-🚧 **In Progress** - Week 1: Data exploration and business context
+---
+
+## Reproducing the Analysis
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/DineshPoddaturi/ecommerce-pricing-transformation.git
+cd ecommerce-pricing-transformation
+```
+
+### 2. Set up environment
+
+```bash
+python -m venv venv
+source venv/bin/activate  # On Mac/Linux
+pip install -r requirements.txt
+```
+
+### 3. Download the data
+
+Download the Olist dataset from Kaggle and place all CSV files in the `data/` directory.
+
+### 4. Run the notebooks in order
+
+Notebooks are numbered and should be run sequentially. Each notebook saves processed data as pickle files in `data/processed/` for use by downstream notebooks.
+
+```
+01 → 02 → 03 → 04 → 05
+```
+
+---
+
+## Citation
+
+If you use this code or analysis, please cite:
+
+```
+Poddaturi, D.R. (2026). Profit-Aware Pricing in Two-Sided Marketplaces:
+Demand Elasticity, Cost Uncertainty, and Customer Lifetime Value in
+Brazilian E-Commerce. Working paper. Available at SSRN:
+https://ssrn.com/abstract=6502262
+```
+
+---
 
 ## Author
 
-**Dinesh R Poddaturi, Ph.D.**  
-Economist | Pricing Strategy & Revenue Optimization  
-[LinkedIn](https://www.linkedin.com/in/dinesh-r-poddaturi)
+**Dinesh R. Poddaturi, Ph.D.**  
+Applied Economist | Pricing Strategy & Marketplace Economics  
+[LinkedIn](https://www.linkedin.com/in/dinesh-r-poddaturi) | [Website](https://dineshpoddaturi.github.io) | [SSRN](https://ssrn.com/author=10964128)
+
+---
 
 ## License
 
-MIT License
-```
+MIT License. See LICENSE file for details.
