@@ -21,7 +21,7 @@ The paper demonstrates that revenue maximization and profit maximization are fun
 
 - A revenue-maximizing strategy for electronics recommends a 40% price cut generating +160% revenue but -162% profit at a 65% COGS structure.
 - A 5-point COGS error forfeits 70–75% of potential profit gains. A 20% elasticity error preserves profitability across all scenarios. Cost validation matters more than elasticity precision.
-- Electronics is structurally underpriced: profit-optimal pricing recommends a 20% price increase despite elastic demand (η = -2.18), yielding +5.6% profit and +BRL 3,143/month.
+- Electronics is structurally underpriced: profit-optimal pricing recommends a 20% price increase despite elastic demand (-2.18), yielding +5.6% profit and +BRL 3,143/month.
 - Same-order bundling is non-viable (0% co-purchase rate across focus categories). Sequential recommendations triggered at days 21, 29, and 56 post-purchase capture the majority of repeat customers within their natural return window.
 - Freight costs affect repeat purchase probability at approximately the same magnitude as product price (coefficients -0.076 and -0.079 respectively).
 
@@ -49,8 +49,8 @@ ecommerce-pricing-transformation/
 | Notebook | Description |
 |---|---|
 | 01_data_exploration_business_context | Data loading, cleaning, product bucket construction, repeat purchase analysis, dataset preparation |
-| 02_segmentation_elasticity_clv | RFM segmentation, price elasticity estimation, customer lifetime value modeling, propensity scoring |
-| 03_sellercompetition_dynamics_platform_revenue | Seller concentration analysis, geographic pricing patterns, platform revenue dynamics, two-sided market analysis |
+| 02_segmentation_elasticity_clv | Price elasticity estimation, propensity modeling, customer lifetime value analysis |
+| 03_sellercompetition_dynamics_platform_revenue | Seller concentration analysis, geographic pricing patterns, hub-and-spoke distribution structure, freight as demand barrier |
 | 04_bundle_analysis_notapplicable | Bundle opportunity analysis — co-purchase rates, cross-category affinity (null result: bundling not viable) |
 | 05_optimization_scenario_simulation | Profit-aware pricing optimization, cost sensitivity analysis, scenario simulation, sequential purchase recommendation framework |
 
@@ -112,12 +112,14 @@ pip install -r requirements.txt
 
 Download the Olist dataset from Kaggle and place all CSV files in the `data/` directory.
 
-### 4. Run the notebooks in order
+### 4. Run the notebooks
 
-Notebooks are numbered and should be run sequentially. Each notebook saves processed data as pickle files in `data/processed/` for use by downstream notebooks.
+Notebooks 01, 02, and 05 are sequential — each depends on outputs from the previous. Notebooks 03 and 04 load raw CSV files directly and can be run independently.
 
 ```
-01 → 02 → 03 → 04 → 05
+01 -> 02 -> 05   (sequential)
+03              (independent)
+04              (independent)
 ```
 
 ---
