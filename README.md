@@ -19,7 +19,7 @@ The paper demonstrates that revenue maximization and profit maximization are fun
 
 ## Key Findings
 
-- A revenue-maximizing strategy for electronics recommends a 40% price cut generating +160% revenue but -162% profit at a 65% COGS structure.
+- A revenue-maximizing strategy for electronics recommends a 40% price cut generating 82.7% revenue but -144% profit at a 65% COGS structure.
 - A 5-point COGS error forfeits 70–75% of potential profit gains. A 20% elasticity error preserves profitability across all scenarios. Cost validation matters more than elasticity precision.
 - Electronics is structurally underpriced: profit-optimal pricing recommends a 20% price increase despite elastic demand (-2.18), yielding +5.6% profit and +BRL 3,143/month.
 - Same-order bundling is non-viable (0% co-purchase rate across focus categories). Sequential recommendations triggered at days 21, 29, and 56 post-purchase capture the majority of repeat customers within their natural return window.
