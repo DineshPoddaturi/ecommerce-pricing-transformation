@@ -132,7 +132,7 @@ If you use this code or analysis, please cite:
 Poddaturi, D.R. (2026). Profit-Aware Pricing in Two-Sided Marketplaces:
 Demand Elasticity, Cost Uncertainty, and Customer Lifetime Value in
 Brazilian E-Commerce. Working paper. Available at SSRN:
-https://ssrn.com/abstract=6502262
+[https://ssrn.com/abstract=6502262](https://dx.doi.org/10.2139/ssrn.6502262)
 ```
 
 ---
